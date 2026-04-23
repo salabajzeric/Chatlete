@@ -147,6 +147,14 @@ This repository is being used to:
 - support future mobile app deployment,
 - and evolve the concept into a production-ready platform.
 
+
+Working prototype features: 23.04.2026
+- Sign up flow
+- Sign in flow
+- Forgot/reset password flow
+- Supabase authentication setup
+- Basic app shell
+
 ---
 
 ## Founder Notes
