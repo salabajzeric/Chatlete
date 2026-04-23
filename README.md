@@ -137,6 +137,42 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 ---
 
+## Development plan
+
+The project is being built in stages using feature branches before merging into `main`.
+
+### Stages
+- Stage 1 — App foundation
+  - App shell
+  - Shared CSS/theme variables
+  - Supabase session-based route decision
+  - Logged-out placeholder shell
+  - Logged-in placeholder shell
+
+- Stage 2 — Real auth screens
+  - Sign up
+  - Sign in
+  - Forgot password
+  - Connect buttons from the foundation shell
+
+- Stage 3 — Main app pages
+  - Feed
+  - Chat
+  - Events
+  - Profile
+
+### Branch strategy
+- `main` — stable branch
+- `feature/app-foundation` — Stage 1 foundation work
+- future branches will be created per stage or feature
+
+### Current progress
+- Stage 1 foundation branch created
+- Supabase session provider added
+- App shell separated into logged-out and logged-in views
+- Base theme and layout structure added
+- First commit created in `feature/app-foundation` 24.04.2026 00:38
+
 ## Current Status
 
 Chatlete is currently in **MVP / prototype development stage**.
