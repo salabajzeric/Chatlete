@@ -9,19 +9,28 @@ export default function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    let mounted = true
+
     supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!mounted) return
       setSession(session)
       setLoading(false)
     })
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!mounted) return
       setSession(session)
+      setLoading(false)
     })
 
-    return () => subscription.unsubscribe()
+    return () => {
+      mounted = false
+      subscription.unsubscribe()
+    }
   }, [])
 
-  // Spinner while Supabase resolves the session
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -30,17 +39,14 @@ export default function App() {
     )
   }
 
-  // Reset password page — always accessible regardless of session
   if (window.location.pathname === '/reset-password') {
     return <ResetPassword />
   }
 
-  // Logged out → auth screens
   if (!session) {
     return <AuthPage />
   }
 
-  // Logged in → app shell (Stage 3 will fill this)
   return (
     <div className="min-h-screen bg-background flex items-center justify-center">
       <div className="text-center space-y-3">

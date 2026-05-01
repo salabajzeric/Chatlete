@@ -1,4 +1,12 @@
 export default function AuthPlaceholder() {
+  const handleGetStarted = () => {
+    alert('Stage 2 auth form goes here: Sign up')
+  }
+
+  const handleSignIn = () => {
+    alert('Stage 2 auth form goes here: Sign in')
+  }
+
   return (
     <div className="app-screen auth-screen">
       <div className="auth-hero">
@@ -26,10 +34,10 @@ export default function AuthPlaceholder() {
         </div>
 
         <div className="auth-hero__actions">
-          <button className="btn btn--primary" type="button">
+          <button className="btn btn--primary" type="button" onClick={handleGetStarted}>
             Get Started
           </button>
-          <button className="btn btn--secondary" type="button">
+          <button className="btn btn--secondary" type="button" onClick={handleSignIn}>
             I already have an account
           </button>
         </div>
