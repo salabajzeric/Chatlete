@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from './lib/supabase'
 import AuthPage from './pages/auth/index'
-import ResetPassword from './ResetPassword'
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null)
@@ -37,10 +36,6 @@ export default function App() {
         <div className="w-6 h-6 rounded-full border-2 border-primary border-t-transparent animate-spin" />
       </div>
     )
-  }
-
-  if (window.location.pathname === '/reset-password') {
-    return <ResetPassword />
   }
 
   if (!session) {
